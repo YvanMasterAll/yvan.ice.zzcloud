@@ -53,27 +53,27 @@
     }
 }
 
-@media screen and (max-width: 1199px) {
-    .iceDesignProAside {
-        &.iceDesignLayoutAside {
-            position: fixed;
-            left: -256px;
-            top: 0px;
-            bottom: 0;
-            padding: 0 20px;
-            background: #2e323e !important;
-            z-index: 9999;
-        }
+// @media screen and (max-width: 1199px) {
+//     .iceDesignProAside {
+//         &.iceDesignLayoutAside {
+//             position: fixed;
+//             left: -256px;
+//             top: 0px;
+//             bottom: 0;
+//             padding: 0 20px;
+//             background: #2e323e !important;
+//             z-index: 9999;
+//         }
 
-        &.openDrawer {
-            transform: translateX(256px);
-            :global {
-                .logo {
-                    width: 200px;
-                    margin: 20px 0;
-                    text-align: center;
-                }
-            }
-        }
-    }
-}
+//         &.openDrawer {
+//             transform: translateX(256px);
+//             :global {
+//                 .logo {
+//                     width: 200px;
+//                     margin: 20px 0;
+//                     text-align: center;
+//                 }
+//             }
+//         }
+//     }
+// }

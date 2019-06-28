@@ -5,9 +5,25 @@ import Header from './components/Header'
 import Aside from './components/Aside'
 import Footer from './components/Footer'
 import styles from './index.module.scss'
+import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 
 export default function BasicLayout(props) {
     const [isScreen, setIsScreen] = useState('isDesktop')
+    const [collapse, _setCollapse] = useState(false)
+    let collaping = null
+
+    function setCollapse(flag) {
+        if (typeof flag === 'boolean') {
+            _setCollapse(flag)
+        } else {
+            _setCollapse(!collapse)
+        }
+        collaping()
+    }
+
+    function setCollaping(callback) {
+        collaping = callback
+    }
 
     /**
      * 注册监听屏幕的变化，可根据不同分辨率做对应的处理
@@ -38,17 +54,31 @@ export default function BasicLayout(props) {
 
     const isMobile = isScreen !== 'isDesktop'
 
+    const breadcrumb = [
+        {
+            link: '/#/monitor/version',
+            text: '埋点监控'
+        },
+        {
+            link: '',
+            text: '应用版本'
+        }
+    ]
+    
     return (
         <div className={styles.iceDesignLayoutDark}>
             <Layout>
-                <Header isMobile={isMobile} />
+                <Header isMobile={isMobile} collapse={collapse} setCollapse={setCollapse}/>
                 <Layout.Section>
                     <Layout.Aside width="auto" type={null}>
-                        <Aside isMobile={isMobile} />
+                        <Aside isMobile={isMobile} collapse={collapse} setCollapse={setCollapse} setCollaping={setCollaping}/>
                     </Layout.Aside>
-                    <Layout.Main>{props.children}</Layout.Main>
+                    <Layout.Main>
+                        <CustomBreadcrumb items={breadcrumb} title="应用版本" />
+                        {props.children}
+                        <Footer />
+                    </Layout.Main>
                 </Layout.Section>
-                <Footer />
             </Layout>
         </div>
     )

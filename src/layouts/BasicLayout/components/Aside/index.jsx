@@ -25,7 +25,6 @@ function getLocaleKey(item) {
 function getSubMenuOrItem(item, index) {
     if (item.children && item.children.some(child => child.name)) {
         const childrenItems = getNavMenuItems(item.children)
-
         if (childrenItems && childrenItems.length > 0) {
             return (
                 <SubNav
@@ -87,69 +86,30 @@ function getDefaultOpenKeys(location = {}) {
 
 const Aside = withRouter(props => {
     const defaultOpenKeys = getDefaultOpenKeys(props.location)
-    const [collapse, setCollapse] = useState(false)
-    const [openDrawer, setOpenDrawer] = useState(false)
     const [openKeys, setOpenKeys] = useState(defaultOpenKeys)
-
-    /**
-     * 响应式通过抽屉形式切换菜单
-     */
-    function toggleMenu() {
-        setOpenDrawer(!openDrawer)
-    }
-
-    /**
-     * 折叠搜索切换
-     */
-    function toggleCollapse() {
-        setCollapse(!collapse)
-        setOpenKeys([])
-    }
-
-    /**
-     * 左侧菜单收缩切换
-     */
-    function onSelect() {
-        toggleMenu()
-    }
 
     /**
      * 当前展开的菜单项
      */
     function onOpenChange(keys) {
         setOpenKeys(keys)
-        setOpenDrawer(false)
     }
 
     const {
         location: { pathname },
-        isMobile
+        isMobile,
+        collapse,
+        setCollaping,
+        setCollapse
     } = props
+    
+    //因为侧边栏折叠后会显示popup, 所以要执行一个回调, 取消popup显示
+    setCollaping(() => { setOpenKeys([]) })
 
-    const openDrawerClassName = openDrawer ? styles.openDrawer : ''
+    const openDrawerClassName = collapse ?  '':styles.openDrawer
 
     return (
-        <div
-            className={`${styles.iceDesignLayoutAside} ${styles.iceDesignProAside} ${openDrawerClassName}`}
-        >
-            {isMobile && <Logo />}
-
-            {isMobile && !openDrawer && (
-                <a className={styles.menuBtn} onClick={toggleMenu}>
-                    <FoundationSymbol type="menu" size="small" />
-                </a>
-            )}
-
-            {!isMobile && (
-                <a className="collapse-btn" onClick={toggleCollapse}>
-                    <FoundationSymbol
-                        key={collapse}
-                        type={collapse ? 'transfer-right' : 'transfer-left'}
-                        size="large"
-                    />
-                </a>
-            )}
-
+        <div className={`${styles.iceDesignLayoutAside} ${styles.iceDesignProAside} ${openDrawerClassName}`}>
             <Nav
                 style={{ width: collapse ? 60 : 200 }}
                 mode={collapse ? 'popup' : 'inline'}
@@ -160,7 +120,6 @@ const Aside = withRouter(props => {
                 openKeys={openKeys}
                 defaultSelectedKeys={[pathname]}
                 onOpen={onOpenChange}
-                onSelect={onSelect}
             >
                 {getNavMenuItems(asideMenuConfig)}
             </Nav>

@@ -9,17 +9,26 @@
     :global {
         .ice-layout {
             width: 100%;
-            min-height: 100vh;
-            padding: 0 20px;
+            height: 100vh;
+            padding: 0 00px;
             background: transparent;
+            position: fixed;
+        }
+
+        .next-nav {
+            &.next-ver {
+                transition: all .2s ease-out;
+            }
         }
 
         .ice-layout-main {
-            padding: 0 0 0 20px;
+            padding: 20px;
+            overflow-y: scroll;
+            overflow-x: hidden;
         }
 
         .ice-layout-section {
-            margin: 20px 0 0;
+            margin: 0 0 0 0;
         }
     }
 }

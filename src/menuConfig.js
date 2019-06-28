@@ -8,14 +8,14 @@ const headerMenuConfig = [
         path: 'https://github.com/alibaba/ice',
         external: true,
         newWindow: true,
-        icon: 'message'
+        icon: 'link',
     },
     {
         name: 'help',
         path: 'https://alibaba.github.io/ice',
         external: true,
         newWindow: true,
-        icon: 'bangzhu'
+        icon: 'link',
     }
 ]
 
@@ -23,7 +23,7 @@ const asideMenuConfig = [
     {
         name: 'Dashboard',
         path: '/dashboard',
-        icon: 'home2',
+        icon: 'set',
         children: [
             {
                 name: 'monitor',
@@ -34,7 +34,7 @@ const asideMenuConfig = [
     {
         name: 'chart',
         path: '/chart',
-        icon: 'chart1',
+        icon: 'set',
         children: [
             {
                 name: 'basic',
@@ -49,7 +49,7 @@ const asideMenuConfig = [
     {
         name: '表格页',
         path: '/table',
-        icon: 'table',
+        icon: 'set',
         children: [
             {
                 name: 'basic',
@@ -66,7 +66,7 @@ const asideMenuConfig = [
     {
         name: '列表页',
         path: '/list',
-        icon: 'copy',
+        icon: 'set',
         children: [
             {
                 name: 'basic',
@@ -81,7 +81,7 @@ const asideMenuConfig = [
     {
         name: 'profile',
         path: '/profile',
-        icon: 'cascades',
+        icon: 'set',
         children: [
             {
                 name: 'basic',
@@ -96,7 +96,7 @@ const asideMenuConfig = [
     {
         name: 'result',
         path: '/result',
-        icon: 'edit2',
+        icon: 'set',
         children: [
             {
                 name: 'success',
@@ -111,7 +111,7 @@ const asideMenuConfig = [
     {
         name: 'account',
         path: '/account',
-        icon: 'person',
+        icon: 'set',
         children: [
             {
                 name: 'setting',
@@ -122,7 +122,7 @@ const asideMenuConfig = [
     {
         name: 'exception',
         path: '/exception',
-        icon: 'gaojingxinxi',
+        icon: 'set',
         children: [
             {
                 name: '204',

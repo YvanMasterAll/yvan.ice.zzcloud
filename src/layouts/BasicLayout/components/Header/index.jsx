@@ -1,6 +1,6 @@
 /* eslint jsx-a11y/no-noninteractive-element-interactions:0 */
 import React, { useEffect } from 'react'
-import { Balloon, Nav, Message } from '@alifd/next'
+import { Balloon, Nav, Message, Button, Icon } from '@alifd/next'
 import IceImg from '@icedesign/img'
 import Layout from '@icedesign/layout'
 import FoundationSymbol from '@icedesign/foundation-symbol'
@@ -13,6 +13,9 @@ import SelectLang from '@/components/SelectLang'
 import Logo from '../Logo'
 
 import styles from './index.module.scss'
+
+/// 临时状态
+let _isMobile = null
 
 function Header(props) {
     const userProfile = stores.useStore('userProfile')
@@ -40,7 +43,9 @@ function Header(props) {
         isMobile,
         className,
         style,
-        intl: { formatMessage }
+        intl: { formatMessage },
+        collapse,
+        setCollapse
     } = props
 
     const { userinfo, fetchData } = userProfile
@@ -50,13 +55,22 @@ function Header(props) {
         fetchData()
     }, [])
 
+    if (isMobile && _isMobile !== isMobile) {
+        setTimeout(() => { setCollapse(true) }, 0)
+    } 
+    _isMobile = isMobile
+    
     return (
         <Layout.Header
             theme="dark"
             className={`${styles.iceDesignLayoutHeader} ${className}`}
             style={{ ...style }}
         >
-            <Logo />
+            <Logo style={{ width: collapse ? 60 : 200, transition: 'all .2s ease-out' }} collapse={collapse}/>
+
+            <div className={styles.asideBar} onClick={setCollapse}>
+                <img src={'../public/images/aside_bar.svg'} />
+            </div>
 
             <div className={styles.iceDesignLayoutHeaderMenu}>
                 {/* Header 菜单项 begin */}

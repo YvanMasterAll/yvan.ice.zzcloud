@@ -1,12 +1,15 @@
 .logo {
     color: $color-brand1-6;
     display: flex;
-    font-size: 36px;
+    font-size: $font-size-title;
     align-items: center;
     font-weight: bold;
     justify-content: center;
-    &:visited,
-    &:link {
-        color: $color-brand1-6;
+    white-space: nowrap;
+    .span {
+        background-image: -webkit-gradient(linear,37.219838% 34.532506%,36.425669% 93.178216%,from(#29cdff),to(#0a60ff),color-stop(.37,#148eff));
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: #1890ff;
     }
 }
