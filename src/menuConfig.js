@@ -23,122 +23,138 @@ const asideMenuConfig = [
     {
         name: 'Dashboard',
         path: '/dashboard',
-        icon: 'set',
+        icon: 'apple',
         children: [
             {
                 name: 'monitor',
-                path: '/dashboard/monitor'
+                path: '/dashboard/monitor',
+                icon: 'vcard'
             }
         ]
     },
     {
         name: 'chart',
         path: '/chart',
-        icon: 'set',
+        icon: 'angellist',
         children: [
             {
                 name: 'basic',
-                path: '/chart/basic'
+                path: '/chart/basic',
+                icon: 'amazon'
             },
             {
                 name: 'general',
-                path: '/chart/general'
+                path: '/chart/general',
+                icon: 'houzz'
             }
         ]
     },
     {
         name: '表格页',
         path: '/table',
-        icon: 'set',
+        icon: 'adn',
         children: [
             {
                 name: 'basic',
-                path: '/table/basic'
+                path: '/table/basic',
                 // authority: 'admin',
+                icon: 'modx'
             },
             {
                 name: 'general',
-                path: '/table/general'
+                path: '/table/general',
                 // authority: 'user',
+                icon: 'usb'
             }
         ]
     },
     {
         name: '列表页',
         path: '/list',
-        icon: 'set',
+        icon: 'scribd',
         children: [
             {
                 name: 'basic',
-                path: '/list/basic'
+                path: '/list/basic',
+                icon: 'hashtag'
             },
             {
                 name: 'general',
-                path: '/list/general'
+                path: '/list/general',
+                icon: 'gitlab'
             }
         ]
     },
     {
         name: 'profile',
         path: '/profile',
-        icon: 'set',
+        icon: 'envira',
         children: [
             {
                 name: 'basic',
-                path: '/profile/basic'
+                path: '/profile/basic',
+                icon: 'braille'
             },
             {
                 name: 'terms',
-                path: '/profile/general'
+                path: '/profile/general',
+                icon: 'blind'
             }
         ]
     },
     {
         name: 'result',
         path: '/result',
-        icon: 'set',
+        icon: 'glide',
         children: [
             {
                 name: 'success',
-                path: '/result/success'
+                path: '/result/success',
+                icon: 'viadeo'
             },
             {
                 name: 'fail',
-                path: '/result/fail'
+                path: '/result/fail',
+                icon: 'snapchat'
             }
         ]
     },
     {
         name: 'account',
         path: '/account',
-        icon: 'set',
+        icon: 'signing',
         children: [
             {
                 name: 'setting',
-                path: '/account/setting'
+                path: '/account/setting',
+                icon: 'linode'
             }
         ]
     },
     {
         name: 'exception',
         path: '/exception',
-        icon: 'set',
+        icon: 'yoast',
         children: [
             {
                 name: '204',
-                path: '/exception/204'
+                path: '/exception/204',
+                icon: 'pencil'
             },
             {
                 name: '403',
-                path: '/exception/403'
+                path: '/exception/403',
+                icon: 'fast-backward'
             },
             {
                 name: '404',
-                path: '/exception/404'
+                path: '/exception/404',
+                icon: 'film'
             },
             {
                 name: '500',
-                path: '/exception/500'
+                path: '/exception/500',
+                icon: 'signal'
             }
         ]
     }

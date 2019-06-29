@@ -25,7 +25,7 @@ export default function request(options) {
             params: null,
             data: options.data,
             headers: null,
-            //withCredentials: true, //是否携带cookie发起请求
+            withCredentials: true, //是否携带cookie发起请求
             validateStatus: (status)=> {
                 return status >= 200 && status < 300
             },

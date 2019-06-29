@@ -7,7 +7,7 @@
             }
             .next-nav .next-nav-item.next-menu-item {
                 background: transparent;
-                color: white;
+                color: #333;
             }
             .next-nav .next-menu-item-text i {
                 margin-right: 8px;
@@ -16,11 +16,17 @@
             .next-nav .next-menu-sub-menu .next-menu-item {
                 transition: none;
 
-                &.next-selected,
-                &:hover {
-                    background: $color-brand1-6;
-                    border-radius: $corner-2;
+                &.next-selected {
+                    background: #e6f7ff;
+                    border-right: 2px solid #1890ff;
+                    color: #1890ff;
                 }
+                &:hover {
+                    color: #1890ff;
+                }
+            }
+            .next-menu-item-inner .next-menu-item-text .fa {
+                opacity: 1;
             }
             .collapse-btn {
                 cursor: pointer;
@@ -48,6 +54,37 @@
             text-decoration: none;
             &:hover {
                 color: #e7e7e7;
+            }
+        }
+    }
+    &.collapse {
+        :global {
+            .next-menu-item-inner .next-menu-item-text .fa {
+                font-size: 20px !important;
+                padding: 0 !important;
+            }
+        }
+    }
+    :global {
+        .next-icon-arrow-down {
+            right: 16px !important;
+            &:before {
+                content: '';
+            }
+            &:after {
+                content: "";
+                width: 8px;
+                height: 8px;
+                font-size: 8px;
+                position: absolute;
+                margin: auto;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                border-right: 1px solid #333;
+                border-bottom: 1px solid #333;
+                transform: rotate(45deg);
             }
         }
     }

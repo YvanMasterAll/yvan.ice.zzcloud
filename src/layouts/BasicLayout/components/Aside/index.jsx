@@ -5,6 +5,7 @@ import { withRouter } from 'react-router'
 import { Nav } from '@alifd/next'
 import { FormattedMessage } from 'react-intl'
 import { asideMenuConfig } from '@/menuConfig'
+import FontAwesome from 'react-fontawesome'
 import Logo from '../Logo'
 import styles from './index.module.scss'
 
@@ -29,7 +30,8 @@ function getSubMenuOrItem(item, index) {
             return (
                 <SubNav
                     key={index}
-                    icon={item.icon ? item.icon : null}
+                    // icon={item.icon ? item.icon : null}
+                    icon={item.icon ? <FontAwesome name={item.icon} style={{color: '#666666', padding: '0 8px', fontSize: 16}} />:null}
                     label={
                         <span className="ice-menu-collapse-hide">
                             <FormattedMessage id={getLocaleKey(item)} />
@@ -43,7 +45,10 @@ function getSubMenuOrItem(item, index) {
         return null
     }
     return (
-        <NavItem key={item.path}>
+        <NavItem 
+            key={item.path}
+            icon={item.icon ? <FontAwesome name={item.icon} style={{color: '#666666', padding: '0 8px', fontSize: 12}} />:null}
+        >
             <Link to={item.path}>
                 <FormattedMessage id={getLocaleKey(item)} />
             </Link>
@@ -106,10 +111,10 @@ const Aside = withRouter(props => {
     //因为侧边栏折叠后会显示popup, 所以要执行一个回调, 取消popup显示
     setCollaping(() => { setOpenKeys([]) })
 
-    const openDrawerClassName = collapse ?  '':styles.openDrawer
+    const collapseClassName = collapse ?  styles.collapse:''
 
     return (
-        <div className={`${styles.iceDesignLayoutAside} ${styles.iceDesignProAside} ${openDrawerClassName}`}>
+        <div className={`${styles.iceDesignLayoutAside} ${styles.iceDesignProAside} ${collapseClassName}`}>
             <Nav
                 style={{ width: collapse ? 60 : 200 }}
                 mode={collapse ? 'popup' : 'inline'}

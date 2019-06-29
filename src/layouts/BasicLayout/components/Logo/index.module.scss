@@ -1,4 +1,11 @@
 .logo {
+    transition: 'all .2s ease-out';
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.logoTitle {
     color: $color-brand1-6;
     display: flex;
     font-size: $font-size-title;
@@ -6,6 +13,7 @@
     font-weight: bold;
     justify-content: center;
     white-space: nowrap;
+    text-decoration: none !important;
     .span {
         background-image: -webkit-gradient(linear,37.219838% 34.532506%,36.425669% 93.178216%,from(#29cdff),to(#0a60ff),color-stop(.37,#148eff));
         -webkit-text-fill-color: transparent;

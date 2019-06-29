@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import config from './baseConfig'
 
 /// 引入默认全局样式
 import '@alifd/next/reset.scss'
 import './global.scss'
 import { init } from '@/utils'
+import { store } from './redux'
 
 /// 引入基础配置文件
 import router from './router'
@@ -21,7 +24,14 @@ if (!ICE_CONTAINER) {
 /// 初始化方法
 init()
 
+/// 全局对象
+global.config = config
+
 ReactDOM.render(
-    <LanguageProvider locale={locale}>{router()}</LanguageProvider>,
+    <LanguageProvider locale={locale}>
+        <Provider store={store}>
+            {router()}
+        </Provider>
+    </LanguageProvider>,
     ICE_CONTAINER
 )

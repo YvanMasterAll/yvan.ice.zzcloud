@@ -1,9 +1,8 @@
 .footer {
     width: 100%;
-    padding: 20px 0;
+    padding: 0 20px;
 }
 .body {
-    margin: 20px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,4 +22,6 @@
 .logo {
     filter: grayscale(100%);
     opacity: 0.3;
+    background-color: transparent;
+    box-shadow: null;
 }

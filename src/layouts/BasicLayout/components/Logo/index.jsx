@@ -4,10 +4,10 @@ import styles from './index.module.scss'
 
 export default function Logo(props) {
     return (
-        <div style={{...props.style, display: 'flex', justifyContent: 'center'}}>
+        <div className={styles.logo}>
             <img src={'../public/images/logo.svg'} style={{marginRight: 10, width: 36}} />
             { !props.collapse && 
-                <Link to="/" className={styles.logo}>
+                <Link to="/" className={styles.logoTitle}>
                     <span className={styles.span}>中正智控</span>
                 </Link>
             }

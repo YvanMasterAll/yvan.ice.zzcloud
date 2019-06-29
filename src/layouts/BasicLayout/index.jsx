@@ -53,17 +53,6 @@ export default function BasicLayout(props) {
     }, [])
 
     const isMobile = isScreen !== 'isDesktop'
-
-    const breadcrumb = [
-        {
-            link: '/#/monitor/version',
-            text: '埋点监控'
-        },
-        {
-            link: '',
-            text: '应用版本'
-        }
-    ]
     
     return (
         <div className={styles.iceDesignLayoutDark}>
@@ -74,7 +63,7 @@ export default function BasicLayout(props) {
                         <Aside isMobile={isMobile} collapse={collapse} setCollapse={setCollapse} setCollaping={setCollaping}/>
                     </Layout.Aside>
                     <Layout.Main>
-                        <CustomBreadcrumb items={breadcrumb} title="应用版本" />
+                        <CustomBreadcrumb />
                         {props.children}
                         <Footer />
                     </Layout.Main>
