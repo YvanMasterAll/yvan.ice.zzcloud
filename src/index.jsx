@@ -12,9 +12,10 @@ import { store } from './redux'
 /// 引入基础配置文件
 import router from './router'
 import LanguageProvider from './components/LocaleProvider'
-import { getLocale } from './utils/locale'
+import { getLocale, setLocale } from './utils/locale'
 
 const locale = getLocale()
+setLocale('zh-CN')
 const ICE_CONTAINER = document.getElementById('ice-container')
 
 if (!ICE_CONTAINER) {

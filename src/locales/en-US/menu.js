@@ -6,6 +6,7 @@ export default {
     'app.menu.chart': 'Chart',
     'app.menu.chart.basic': 'Basic Chart',
     'app.menu.chart.general': 'General Chart',
+    'app.menu.chart.echarts': 'ECharts Chart',
 
     'app.menu.table': 'Table',
     'app.menu.table.basic': 'Basic Table',

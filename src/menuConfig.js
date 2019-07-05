@@ -46,6 +46,11 @@ const asideMenuConfig = [
                 name: 'general',
                 path: '/chart/general',
                 icon: 'houzz'
+            },
+            {
+                name: 'echarts',
+                path: '/chart/echarts',
+                icon: 'bar-chart'
             }
         ]
     },

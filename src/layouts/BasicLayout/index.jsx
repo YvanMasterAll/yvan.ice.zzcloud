@@ -53,7 +53,7 @@ export default function BasicLayout(props) {
     }, [])
 
     const isMobile = isScreen !== 'isDesktop'
-    
+
     return (
         <div className={styles.iceDesignLayoutDark}>
             <Layout>

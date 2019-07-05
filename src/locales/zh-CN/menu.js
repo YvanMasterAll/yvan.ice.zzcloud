@@ -6,6 +6,7 @@ export default {
     'app.menu.chart': '图表页',
     'app.menu.chart.basic': '基础图表',
     'app.menu.chart.general': '通用图表',
+    'app.menu.chart.echarts': '百度图表',
 
     'app.menu.table': '表格页',
     'app.menu.table.basic': '基础表格',

@@ -58,6 +58,9 @@ function Header(props) {
     if (isMobile && _isMobile !== isMobile) {
         setTimeout(() => { setCollapse(true) }, 0)
     } 
+    if (!isMobile && _isMobile !== isMobile) {
+        setTimeout(() => { setCollapse(false) }, 0)
+    } 
     _isMobile = isMobile
     
     return (
@@ -66,109 +69,13 @@ function Header(props) {
             className={`${styles.iceDesignLayoutHeader} ${className}`}
             style={{ ...style }}
         >
-            <div style={{ width: collapse ? 60 : 200, zIndex: 1, height: 60, boxShadow: '0 1px 9px -3px rgba(0,0,0,.2)', backgroundColor: '#fff' }}>
+            <div style={{ width: collapse ? 60 : 200, zIndex: 1, height: 60, boxShadow: '0 1px 9px -3px rgba(0,0,0,.2)', backgroundColor: '#fff', transition: 'all .2s ease-out' }}>
                 <Logo collapse={collapse}/>
             </div>
 
             <div className={styles.iceDesignHeaderBar}>
                 <div className={styles.asideBar} onClick={setCollapse}>
                     <img src={'../public/images/aside_bar.svg'} />
-                </div>
-
-                <div className={styles.iceDesignLayoutHeaderMenu}>
-                    {/* Header 菜单项 begin */}
-                    {headerMenuConfig && headerMenuConfig.length > 0 ? (
-                        <Nav direction="hoz" type="secondary" selectedKeys={[]}>
-                            {headerMenuConfig.map((nav, idx) => {
-                                const linkProps = {}
-                                if (nav.newWindow) {
-                                    linkProps.href = nav.path
-                                    linkProps.target = '_blank'
-                                } else if (nav.external) {
-                                    linkProps.href = nav.path
-                                } else {
-                                    linkProps.to = nav.path
-                                }
-                                const linkName = formatMessage({
-                                    id: getLocaleKey(nav)
-                                })
-                                return (
-                                    <Nav.Item key={idx}>
-                                        {linkProps.to ? (
-                                            <Link {...linkProps}>
-                                                {nav.icon ? (
-                                                    <FoundationSymbol
-                                                        type={nav.icon}
-                                                        size="small"
-                                                    />
-                                                ) : null}{' '}
-                                                {!isMobile ? linkName : null}
-                                            </Link>
-                                        ) : (
-                                            <a {...linkProps}>
-                                                {nav.icon ? (
-                                                    <FoundationSymbol
-                                                        type={nav.icon}
-                                                        size="small"
-                                                    />
-                                                ) : null}{' '}
-                                                {!isMobile ? linkName : null}
-                                            </a>
-                                        )}
-                                    </Nav.Item>
-                                )
-                            })}
-                        </Nav>
-                    ) : null}
-                    {/* Header 菜单项 end */}
-
-                    {/* 多语言选择 */}
-                    <SelectLang />
-
-                    {/* Header 右侧内容块 */}
-                    <Balloon
-                        trigger={
-                            <div className={styles.iceDesignHeaderUserpannel}>
-                                <IceImg
-                                    height={40}
-                                    width={40}
-                                    src={avatar}
-                                    className={styles.userAvatar}
-                                />
-                                <div className={styles.userProfile}>
-                                    <span className={styles.userName}>{name}</span>
-                                    <br />
-                                    <span className={styles.userDepartment}>
-                                        {department}
-                                    </span>
-                                </div>
-                                <FoundationSymbol
-                                    type="angle-down"
-                                    size="small"
-                                    className={styles.iconDown}
-                                />
-                            </div>
-                        }
-                        closable={false}
-                        className={styles.userProfileMenu}
-                    >
-                        <ul>
-                            <li
-                                className={styles.userProfileMenuItem}
-                                onClick={handleSetting}
-                            >
-                                <FoundationSymbol type="repair" size="small" />
-                                <FormattedMessage id="app.header.user.setting" />
-                            </li>
-                            <li
-                                className={styles.userProfileMenuItem}
-                                onClick={handleLogout}
-                            >
-                                <FoundationSymbol type="person" size="small" />
-                                <FormattedMessage id="app.header.user.logout" />
-                            </li>
-                        </ul>
-                    </Balloon>
                 </div>
             </div>
         </Layout.Header>
