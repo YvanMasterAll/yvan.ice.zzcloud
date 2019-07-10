@@ -22,3 +22,8 @@ export const recordList = {
     url: '/api/record',
     method: 'post'
 }
+
+export const signin = {
+    url: '/api/auth/signin',
+    method: 'post'
+}

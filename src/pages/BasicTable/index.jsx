@@ -13,5 +13,5 @@ function BasicTable() {
 }
 
 export default withAuth({
-    authorities: ['admin']
+    authorities: [203]
 })(BasicTable)

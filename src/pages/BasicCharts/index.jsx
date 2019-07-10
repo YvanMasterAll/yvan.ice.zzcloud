@@ -17,5 +17,5 @@ function BasicCharts() {
 }
 
 export default withAuth({
-    authorities: ['admin', 'user']
+    authorities: [202]
 })(BasicCharts)

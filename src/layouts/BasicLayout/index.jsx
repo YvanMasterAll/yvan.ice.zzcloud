@@ -6,6 +6,7 @@ import Aside from './components/Aside'
 import Footer from './components/Footer'
 import styles from './index.module.scss'
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
+import { authCheck } from '../../components/Auth'
 
 export default function BasicLayout(props) {
     const [isScreen, setIsScreen] = useState('isDesktop')
@@ -54,9 +55,14 @@ export default function BasicLayout(props) {
 
     const isMobile = isScreen !== 'isDesktop'
 
+    if (!authCheck()) {
+        props.history.push('/user')
+        return (null)
+    }
+
     return (
         <div className={styles.iceDesignLayoutDark}>
-            <Layout>
+            <Layout>       
                 <Header isMobile={isMobile} collapse={collapse} setCollapse={setCollapse}/>
                 <Layout.Section>
                     <Layout.Aside width="auto" type={null}>

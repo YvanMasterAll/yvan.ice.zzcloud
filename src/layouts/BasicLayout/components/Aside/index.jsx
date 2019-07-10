@@ -52,6 +52,9 @@ function getSubMenuOrItem(item, index) {
             <Link to={item.path}>
                 <FormattedMessage id={getLocaleKey(item)} />
             </Link>
+            {/* <Link to={'/exception/403'}>
+                <FormattedMessage id={getLocaleKey(item)} />
+            </Link> */}
         </NavItem>
     )
 }

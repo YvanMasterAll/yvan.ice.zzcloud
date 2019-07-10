@@ -7,7 +7,9 @@ import config from './baseConfig'
 import '@alifd/next/reset.scss'
 import './global.scss'
 import { init } from '@/utils'
+import test from './utils/test'
 import { store } from './redux'
+import FullLoading from './components/FullLoading'
 
 /// 引入基础配置文件
 import router from './router'
@@ -25,12 +27,16 @@ if (!ICE_CONTAINER) {
 /// 初始化方法
 init()
 
+/// 测试方法
+test()
+
 /// 全局对象
 global.config = config
 
 ReactDOM.render(
     <LanguageProvider locale={locale}>
         <Provider store={store}>
+            <FullLoading/>
             {router()}
         </Provider>
     </LanguageProvider>,

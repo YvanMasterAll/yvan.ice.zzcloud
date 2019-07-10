@@ -52,7 +52,7 @@ function Header(props) {
     const { name, department, avatar } = userinfo
 
     useEffect(() => {
-        fetchData()
+        // fetchData()
     }, [])
 
     if (isMobile && _isMobile !== isMobile) {
