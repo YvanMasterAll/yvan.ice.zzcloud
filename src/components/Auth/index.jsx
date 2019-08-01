@@ -105,11 +105,20 @@ const withAuth = params => WrapperedComponent => {
 
 /// 检查token是否过时
 const authCheck = function() {
+    // 测试阶段直接返回true
+    // if (global.env !== 'pro') {
+    //     return true
+    // }
+
     let user = env.getUser()
     if (!user) { return false }
-    
-    let token = user.token
-    let expire = token.exp
+
+    // 将user放入全局
+    global.user = user
+
+    let expire = user.expire
+    if (!expire) { return false }
+
     let now = Math.ceil((new Date().getTime())/1000)
     if (now > expire) {
         return false

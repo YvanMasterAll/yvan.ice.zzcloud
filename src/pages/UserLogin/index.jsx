@@ -33,9 +33,13 @@ function UserLogin(props) {
 
     async function handleLogin(params) {
         try {
-            userProfile.login(params, () => {
-                Message.success('登录成功')
-                props.history.push('/')
+            userProfile.login(params, (result) => {
+                if (result.valid) {
+                    Message.success('登录成功')
+                    // props.history.push('/')
+                } else {
+                    Message.success('登录失败，错误信息：' + result.msg)
+                }
             })
         } catch (err) {
             console.log(err)

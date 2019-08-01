@@ -1,3 +1,4 @@
+var moment = require('moment')
 
 /// 全局函数
 
@@ -20,6 +21,11 @@ export const setStore = (name, content) => {
 export const getStore = name => {
     if (!name) return
     return window.localStorage.getItem(name)
+}
+
+export const removeStore = name => {
+    if (!name) return
+    return window.localStorage.removeItem(name)
 }
 
 /// 本地环境
@@ -45,9 +51,34 @@ class Env {
         return getStore('token')
     }
 
+    clearUser() {
+        return removeStore('user')
+    }
+
     tokenValid() {
 
     }
 }
 
 export const env = new Env()
+
+/// 扩展工具
+class Util {
+    constructor() {
+        this.format = "YYYY-MM-DD HH:mm:ss"
+    }
+
+    now() {
+        return moment().format(this.format)
+    }
+
+    toDateString() {
+        return moment().format(this.format)
+    }
+
+    toDate(ts) {
+        return moment(ts)
+    }
+}
+
+export const util = new Util()

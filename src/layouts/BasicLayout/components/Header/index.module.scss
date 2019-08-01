@@ -58,7 +58,8 @@ $ice-header-icon-down-color: #fff !default;
         display: flex;
         align-items: center;
         font-size: 12px;
-        margin-left: 20px;
+        margin-right: 20px;
+        margin-left: auto;
         cursor: pointer;
         .userProfile {
             display: inline-block;
@@ -66,7 +67,8 @@ $ice-header-icon-down-color: #fff !default;
             margin-bottom: 2px;
             color: $ice-header-text-color;
             .userName {
-                font-size: 13px;
+                font-size: 15px;
+                color: #333;
             }
             .userDepartment {
                 font-size: 12px;

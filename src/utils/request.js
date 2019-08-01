@@ -6,11 +6,25 @@ import { env } from '../utils'
 import { Message } from '@alifd/next'
 import { store, actions } from '../redux'
 
+/// 模拟数据
+if (global.env !== 'dev') {
+    require('./mock')
+}
+
 /// 设置请求身份
 axios.interceptors.request.use(config => {
     const token = env.getToken()
-    config.headers.common['Authorization'] = 'Bearer ' + token
+    // config.headers.common['Authorization'] = 'Bearer ' + token
+    config.headers.authorization = 'Bearer ' + token
     return config
+})
+axios.interceptors.response.use(function (config) {
+    if (config.headers.authorization != null) {
+        env.setToken(config.headers.authorization)
+    }
+    return config
+}, function (error) {
+    return Promise.reject(error)
 })
 
 /**
@@ -31,7 +45,8 @@ export default function request(options) {
     return new Promise((resolve, reject) => {
         let _option = {
             method: options.method,
-            url: config.baseUrl + options.url,
+            // url: config.baseUrl + options.url,
+            url: options.url,
             timeout: 10000,
             params: options.data,
             data: options.data,
@@ -51,25 +66,22 @@ export default function request(options) {
                     typeof res.data === 'object'
                         ? res.data
                         : JSON.parse(res.data)
-                if (data.code === 200) {
+                if (data.code === 0) {
                     data.valid = true
                 } else {
                     data.valid = false
                 }
-                if (data.code === 401 || data.code == 411) { // (401)授权失败, (411)token异常
+                if (data.code === 401 || data.code == 11) { // 授权失败
                     window.location.href = '/#/user'
-                }
-                if (data.code == 410) { // (410)缺少资源权限
-                    Message.show({
-                        type: 'error',
-                        content: data.msg
-                    })
                 }
                 if (options.url === urls.signin.url && data.valid) {
                     // 本地储存
-                    env.setUser(data.data)
-                    env.setToken(data.msg)
+                    env.setUser(data.dataDict)
                     window.location.href = '/#/'
+                }
+                if (options.url === urls.signout.url) {
+                    // 清除环境
+                    env.clearUser()
                 }
                 resolve(data)
             },

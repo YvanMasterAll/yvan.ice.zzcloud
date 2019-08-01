@@ -48,35 +48,88 @@ function Header(props) {
         setCollapse
     } = props
 
-    const { userinfo, fetchData } = userProfile
-    const { name, department, avatar } = userinfo
-
     useEffect(() => {
         // fetchData()
     }, [])
 
     if (isMobile && _isMobile !== isMobile) {
-        setTimeout(() => { setCollapse(true) }, 0)
-    } 
+        setTimeout(() => {
+            setCollapse(true)
+        }, 0)
+    }
     if (!isMobile && _isMobile !== isMobile) {
-        setTimeout(() => { setCollapse(false) }, 0)
-    } 
+        setTimeout(() => {
+            setCollapse(false)
+        }, 0)
+    }
     _isMobile = isMobile
-    
+
     return (
         <Layout.Header
             theme="dark"
             className={`${styles.iceDesignLayoutHeader} ${className}`}
             style={{ ...style }}
         >
-            <div style={{ width: collapse ? 60 : 200, zIndex: 1, height: 60, boxShadow: '0 1px 9px -3px rgba(0,0,0,.2)', backgroundColor: '#fff', transition: 'all .2s ease-out' }}>
-                <Logo collapse={collapse}/>
+            <div
+                style={{
+                    width: collapse ? 60 : 200,
+                    zIndex: 1,
+                    height: 60,
+                    boxShadow: '0 1px 9px -3px rgba(0,0,0,.2)',
+                    backgroundColor: '#fff',
+                    transition: 'all .2s ease-out'
+                }}
+            >
+                <Logo collapse={collapse} />
             </div>
 
             <div className={styles.iceDesignHeaderBar}>
                 <div className={styles.asideBar} onClick={setCollapse}>
-                    <img src={'../public/images/aside_bar.svg'} />
+                    <img src={'/images/aside_bar.svg'} />
                 </div>
+                <Balloon
+                    trigger={
+                        <div className={styles.iceDesignHeaderUserpannel}>
+                            <IceImg
+                                height={40}
+                                width={40}
+                                src={'http://ww1.sinaimg.cn/mw690/da2f588fgy1g5e8yeym3sj21mg12wtfu.jpg'}
+                                className={styles.userAvatar}
+                            />
+                            <div className={styles.userProfile}>
+                                <span className={styles.userName}>{global.user.username}</span>
+                                <br />
+                                <span className={styles.userDepartment}>
+                                    管理员
+                                </span>
+                            </div>
+                            <FoundationSymbol
+                                type="angle-down"
+                                size="small"
+                                className={styles.iconDown}
+                            />
+                        </div>
+                    }
+                    closable={false}
+                    className={styles.userProfileMenu}
+                >
+                    <ul>
+                        <li
+                            className={styles.userProfileMenuItem}
+                            onClick={handleSetting}
+                        >
+                            <FoundationSymbol type="repair" size="small" />
+                            <FormattedMessage id="app.header.user.setting" />
+                        </li>
+                        <li
+                            className={styles.userProfileMenuItem}
+                            onClick={handleLogout}
+                        >
+                            <FoundationSymbol type="person" size="small" />
+                            <FormattedMessage id="app.header.user.logout" />
+                        </li>
+                    </ul>
+                </Balloon>
             </div>
         </Layout.Header>
     )

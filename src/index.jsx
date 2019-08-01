@@ -30,6 +30,10 @@ init()
 /// 测试方法
 test()
 
+/// 当前环境
+// global.env = 'dev'
+global.env = 'pro'
+
 /// 全局对象
 global.config = config
 

@@ -3,16 +3,6 @@ export const userProfile = {
     method: 'get'
 }
 
-export const userLogout = {
-    url: '/api/logout',
-    method: 'post'
-}
-
-export const userLogin = {
-    url: '/api/login',
-    method: 'post'
-}
-
 export const userRegister = {
     url: '/api/register',
     method: 'post'
@@ -24,6 +14,16 @@ export const recordList = {
 }
 
 export const signin = {
-    url: '/api/auth/signin',
+    url: '/api/v1/admin/login',
     method: 'post'
+}
+
+export const signout = {
+    url: '/api/v1/admin/logout',
+    method: 'post'
+}
+
+export const repos = {
+    url: '/api/v1/admin/repos',
+    method: 'get'
 }

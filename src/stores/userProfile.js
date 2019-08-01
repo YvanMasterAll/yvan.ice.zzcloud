@@ -1,5 +1,5 @@
 import request from '@/utils/request'
-import { userProfile, userLogout, userLogin } from '../dataSourceConfig'
+import { signin, signout } from '../dataSourceConfig'
 
 export default {
     userinfo: {
@@ -20,9 +20,8 @@ export default {
 
     async login(params, callback) {
         const data = await request({
-            ...userLogin,
+            ...signin,
             data: {
-                ...userLogin.data,
                 ...params
             }
         })
@@ -32,7 +31,7 @@ export default {
     },
 
     async logout(callback) {
-        const data = await request(userLogout)
+        const data = await request(signout)
         if (callback) {
             callback(data)
         }
