@@ -10,7 +10,7 @@ function test() {
     // testIcestore()
     // testSocket
     // testRedux()
-    testRepos()
+    // testRepos()
     // testExample()
 }
 

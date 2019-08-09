@@ -1,4 +1,16 @@
 export default {
+    // Repository
+    'app.menu.repository': '知识库',
+    'app.menu.repository.edit': '知识库编辑',
+    'app.menu.commit': 'commit',
+    'app.menu.commit.edit': 'commit编辑',
+    'app.menu.issue': 'issue',
+    'app.menu.issue.edit': 'issue编辑',
+
+    // User
+    'app.menu.users': '用户管理',
+    'app.menu.users.edit': '用户编辑',
+
     // Aside Menu
     'app.menu.dashboard': 'Dashboard',
     'app.menu.dashboard.monitor': '监控页',

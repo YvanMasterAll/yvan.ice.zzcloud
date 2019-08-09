@@ -1,6 +1,8 @@
 const urls = require('../src/dataSourceConfig')
 import request from '../src/utils/request'
 import config from '../src/baseConfig'
+// 模拟数据
+require('@/utils/mock')
 
 it('signin test', function() {
     console.log(config.baseUrl + urls.signin.url)

@@ -1,3 +1,21 @@
 body {
     -webkit-font-smoothing: antialiased;
 }
+
+// 箭头
+.chevron { 
+    width: 4px;
+    height: 4px;
+    border-top: 1px solid #333333;
+    border-right: 1px solid #333333;
+    transition: .3s all cubic-bezier(1, 0.25, 0.25, .8);
+    will-change: transform;
+  
+    &.down {
+      transform: rotate(135deg); 
+    }
+  
+    &.up {
+      transform: rotate(-45deg);  
+    } 
+}

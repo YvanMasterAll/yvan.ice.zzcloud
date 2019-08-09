@@ -17,6 +17,7 @@
     "@icedesign/theme": "^1.x",
     "axios": "^0.18.0",
     "bizcharts": "^3.2.2",
+    "braft-editor": "^2.3.7",
     "classnames": "^2.2.5",
     "cookie": "^0.4.0",
     "echarts": "^4.2.1",

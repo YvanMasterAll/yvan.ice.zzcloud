@@ -37,6 +37,12 @@ global.env = 'pro'
 /// 全局对象
 global.config = config
 
+/// 模拟数据
+if (global.env !== 'pro') {
+    console.log('mocking data is working...')
+    require('@/utils/mock')
+}
+
 ReactDOM.render(
     <LanguageProvider locale={locale}>
         <Provider store={store}>

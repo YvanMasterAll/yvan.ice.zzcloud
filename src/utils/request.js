@@ -1,21 +1,30 @@
 import axios from 'axios'
 import config from '../baseConfig'
-import { RequestError } from '../utils/errors'
+import { RequestError, AuthFailed } from '../utils/errors'
 import * as urls from '../dataSourceConfig'
 import { env } from '../utils'
 import { Message } from '@alifd/next'
 import { store, actions } from '../redux'
-
-/// 模拟数据
-if (global.env !== 'dev') {
-    require('./mock')
-}
+import qs from 'qs'
 
 /// 设置请求身份
 axios.interceptors.request.use(config => {
+    // 请求头携带身份
     const token = env.getToken()
     // config.headers.common['Authorization'] = 'Bearer ' + token
     config.headers.authorization = 'Bearer ' + token
+    
+    // 请求参数转换, 如果不转换后台拿不到数据
+    if (config.method === 'post') {
+        config.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
+        config.transformRequest = [function (data, headers) {
+            if (data instanceof FormData) {
+                return data
+            }
+            return qs.stringify(data)
+        }]
+    }
+
     return config
 })
 axios.interceptors.response.use(function (config) {
@@ -47,10 +56,11 @@ export default function request(options) {
             method: options.method,
             // url: config.baseUrl + options.url,
             url: options.url,
-            timeout: 10000,
-            params: options.data,
+            timeout: 20000,
+            // params: options.params ? options.params:options.data,
+            params: options.params ? options.params:(options.method === 'get' ? options.data:null),
             data: options.data,
-            headers: null,
+            headers: options.headers ? options.headers:null,
             withCredentials: true, // 是否携带cookie发起请求
             validateStatus: status => {
                 return status >= 200 && status < 300
@@ -88,7 +98,20 @@ export default function request(options) {
             error => {
                 // 隐藏菊花
                 store.dispatch(actions.app.requesting(false))
-                console.log(error)
+                if (error.response) {
+                    console.log(error.response.status)
+                }
+
+                if (error.response && error.response.status === 401) { // 授权失败
+                    window.location.href = '/#/user'
+                    let _error = new AuthFailed()
+                    resolve({
+                        code: _error.code,
+                        msg: _error.msg,
+                        valid: false
+                    })
+                }
+
                 let _error = new RequestError()
                 resolve({
                     code: _error.code,

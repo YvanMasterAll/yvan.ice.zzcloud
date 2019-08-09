@@ -21,6 +21,26 @@ const headerMenuConfig = [
 
 const asideMenuConfig = [
     {
+        name: 'Repository',
+        path: '/repository',
+        icon: 'apple'
+    },
+    {
+        name: 'Commit',
+        path: '/commit',
+        icon: 'apple'
+    },
+    {
+        name: 'Issue',
+        path: '/issue',
+        icon: 'apple'
+    },
+    {
+        name: 'User',
+        path: '/users',
+        icon: 'apple'
+    },
+    {
         name: 'Dashboard',
         path: '/dashboard',
         icon: 'apple',

@@ -31,7 +31,7 @@ function getSubMenuOrItem(item, index) {
                 <SubNav
                     key={index}
                     // icon={item.icon ? item.icon : null}
-                    icon={item.icon ? <FontAwesome name={item.icon} style={{width: 28, color: '#666666', textAlign: "center", fontSize: 16}} />:null}
+                    icon={item.icon ? <FontAwesome name={item.icon} style={{width: 24, color: '#666666', textAlign: "center", fontSize: 16}} />:null}
                     label={
                         <span className="ice-menu-collapse-hide">
                             <FormattedMessage id={getLocaleKey(item)} />
@@ -47,7 +47,7 @@ function getSubMenuOrItem(item, index) {
     return (
         <NavItem 
             key={item.path}
-            icon={item.icon ? <FontAwesome name={item.icon} style={{width: 24, color: '#666666', textAlign: "center", fontSize: 12}} />:null}
+            icon={item.icon ? <FontAwesome name={item.icon} style={{width: 24, color: '#666666', textAlign: "center", fontSize: 16}} />:null}
         >
             <Link to={item.path}>
                 <FormattedMessage id={getLocaleKey(item)} />

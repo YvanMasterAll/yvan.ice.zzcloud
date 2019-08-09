@@ -25,8 +25,22 @@
                     color: #1890ff;
                 }
             }
+            .next-nav.next-normal .next-nav-item.next-menu-item {
+                &.next-selected {
+                    background: #e6f7ff;
+                    border-right: 2px solid #1890ff;
+                    color: #1890ff;
+                }
+                &:hover {
+                    color: #1890ff;
+                }
+            }
             .next-menu-item-inner .next-menu-item-text .fa {
                 opacity: 1;
+                margin-right: 6px;
+            }
+            .next-nav.next-icon-only .next-menu-item-inner {
+                width: 24px;
             }
             .collapse-btn {
                 cursor: pointer;

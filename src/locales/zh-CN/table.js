@@ -25,5 +25,13 @@ export default {
     'app.general.form.state': '合同状态',
     'app.general.form.type': '合同类型',
     'app.general.form.hint': '查询我批准的合同',
-    'app.general.form.advanced.search': '高级搜索'
+    'app.general.form.advanced.search': '高级搜索',
+
+    // 知识库
+    'app.repository.list.title': '知识库查询',
+    'app.commit.list.title': 'commit查询',
+    'app.issue.list.title': 'issue查询',
+
+    // 用户管理
+    'app.users.list.title': '用户查询'
 }
