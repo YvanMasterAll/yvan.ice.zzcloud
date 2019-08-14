@@ -33,5 +33,6 @@ export default {
     'app.issue.list.title': 'issue查询',
 
     // 用户管理
-    'app.users.list.title': '用户查询'
+    'app.users.list.title': '用户查询',
+    'app.trend.list.title': '动态查询'
 }

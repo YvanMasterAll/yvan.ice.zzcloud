@@ -1,5 +1,6 @@
 export default {
-    baseUrl: 'http://localhost:8181',
-    socketUrl: 'http://localhost:3002',
+    ibaseUrl: 'http://127.0.0.1:8181',
+    isocketUrl: 'http://127.0.0.1:3002',
+    baseUrl: 'http://111.67.203.113:8181',
     pageSize: 10
 }

@@ -76,6 +76,12 @@ const UsersTable = props => {
     }
 
     function handleFilterChange(values) {
+        // 如果数据为空将它设为undefined, 避免提交伪参数
+        for (var index in values) {
+            if (_.trimStart(values[index]) === "") {
+                values[index] = undefined
+            }
+        }
         // 重置查询参数
         ys.filters = values
         setCurrent(1)
@@ -133,7 +139,7 @@ const UsersTable = props => {
     }
 
     function handleDetail(data) {
-        props.history.push({pathname: '/user/edit', state: data})
+        props.history.push({pathname: '/users/edit', state: data})
     }
 
     function rowSelectionChanged(data) {
@@ -141,7 +147,7 @@ const UsersTable = props => {
     }
 
     function gotoAdd(data) {
-        props.history.push({pathname: '/user/add', state: data})
+        props.history.push({pathname: '/users/add', state: data})
     }
 
     const moreMenuTrigger = (
@@ -172,7 +178,7 @@ const UsersTable = props => {
                 </Button>
                 <Dropdown trigger={moreMenuTrigger}  triggerType={["click"]}>
                     <Menu>
-                        <Menu.Item onClick={gotoAdd.bind(this, data)}>查看动态</Menu.Item>
+                        <Menu.Item onClick={gotoTrend.bind(this, data)}>查看动态</Menu.Item>
                     </Menu>
                 </Dropdown>
             </div>
@@ -188,23 +194,36 @@ const UsersTable = props => {
         return <div>{util.toDateString(_time * 1000)}</div>
     }
 
-    if (props.location.pathname === '/user/edit') {
+    function renderName(_name, index, data) {
+        return (
+            <div style={{display: 'flex', alignItems: 'center'}}>
+                <img src={data.portrait} width={28} style={{borderRadius: 4, marginRight: 4}} />
+                <span>{_name}</span>
+            </div>
+        )
+    }
+
+    if (props.location.pathname === '/users/edit') {
         if (_data) { //如果路由带了数据, 跳转到编辑页面
             return (
                 <EditPage props={_data} />
             )
         } else {
-            props.history.push('/user')
+            props.history.push('/users')
         }
     }
-    if (props.location.pathname === '/user/add') {
+    if (props.location.pathname === '/users/add') {
         if (_data) { //如果路由带了数据, 跳转到编辑页面
             return (
                 <AddPage props={_data} />
             )
         } else {
-            props.history.push('/user')
+            props.history.push('/users')
         }
+    }
+
+    function gotoTrend(data) {
+        props.history.push({pathname: '/trend', state: {_userid: data.id}})
     }
 
     return (
@@ -242,6 +261,7 @@ const UsersTable = props => {
                                 <Table.Column
                                     title="用户名"
                                     dataIndex="username"
+                                    cell={renderName}
                                 />
                                 <Table.Column
                                     title="手机号"

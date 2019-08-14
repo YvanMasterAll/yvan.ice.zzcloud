@@ -38,15 +38,13 @@ function AddPage(props) {
                 return false
             }
 
-            let portrait = null
-            if (value.portrait.length > 0) {
-                portrait = value.portrait[0]
+            let portrait = undefined
+            if (values.portrait.length > 0) {
+                portrait = values.portrait[0].url
             }
             let _data = {
-                ...value, portrait: portrait
+                ...values, portrait: portrait
             }
-
-            console.log(_data)
 
             async function _request(data) {
                 let result = await request({
@@ -56,6 +54,8 @@ function AddPage(props) {
                 })
                 if (result.valid) {
                     Message.success('成功添加用户')
+                    // 跳转回用户列表
+                    props.history.push('/users')
                 } else {
                     Message.show({
                         type: 'error',
@@ -65,7 +65,7 @@ function AddPage(props) {
                     })
                 }
             }
-            // _request(_data)
+            _request(_data)
         })
     }
 

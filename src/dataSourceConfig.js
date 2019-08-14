@@ -117,3 +117,8 @@ export const issueAdd = {
     url: '/api/v1/admin/issue/add',
     method: 'post'
 }
+
+export const trends = {
+    url: '/api/v1/admin/trends',
+    method: 'get'
+}

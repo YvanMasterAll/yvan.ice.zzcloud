@@ -81,6 +81,12 @@ const IssuesTable = props => {
     }
 
     function handleFilterChange(values) {
+        // 如果数据为空将它设为undefined, 避免提交伪参数
+        for (var index in values) {
+            if (_.trimStart(values[index]) === "") {
+                values[index] = undefined
+            }
+        }
         // 重置查询参数
         ys.filters = values
         setCurrent(1)

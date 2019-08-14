@@ -9,6 +9,7 @@ import {
 import { FormattedMessage } from 'react-intl'
 import styles from './index.module.scss'
 import { util } from '@/utils'
+import FilterTag from '../FilterTag'
 
 const { Row, Col } = Grid
 const { RangePicker } = DatePicker;
@@ -88,7 +89,10 @@ export default function Filter(props) {
                     <div className={styles.formItem}>
                         <span className={styles.formLabel}>数据状态：</span>
                         <IceFormBinder name="state">
-                            <Select style={{ width: '70%' }}>
+                            <Select style={{ width: '70%' }} hasClear={true}>
+                                <Select.Option value={util.state.ON}>
+                                    {util.state._ON}
+                                </Select.Option>
                                 <Select.Option value={util.state.ON}>
                                     {util.state._ON}
                                 </Select.Option>
@@ -128,6 +132,9 @@ export default function Filter(props) {
                         <Button type="primary" onClick={onSearch}>
                             <FormattedMessage id="app.general.table.btn.search" />
                         </Button>
+                        {/* <div style={{marginLeft: 'auto'}}>
+                            <FilterTag />
+                        </div> */}
                     </div>
                 </Col>
             </Row>

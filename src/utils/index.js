@@ -88,24 +88,15 @@ export const util = new Util()
 
 /// 数据状态
 util.state = {
-    ON: "ON",
-    OFF: "OFF",
-    Cancel: "Cancel",
-    Accept: "Accept",
-    Deny: "Deny",
-    Delete: "Delete",
-    Complete: "Complete",
-    Unread: "Unread",
-    Read: "Read", 
-    _ON: "正常",
-    _OFF: "已关闭",
-    _Cancel: "已失效",
-    _Accept: "审核通过",
-    _Deny: "审核拒绝",
-    _Delete: "已删除",
-    _Complete: "已完成",
-    _Unread: "未读",
-    _Read: "已读", 
+    ON: "ON",               _ON: "正常",
+    OFF: "OFF",             _OFF: "已关闭",
+    Cancel: "Cancel",       _Cancel: "已失效",
+    Accept: "Accept",       _Accept: "审核通过",
+    Deny: "Deny",           _Deny: "审核拒绝",
+    Delete: "Delete",       _Delete: "已删除",
+    Complete: "Complete",   _Complete: "已完成",
+    Unread: "Unread",       _Unread: "未读",
+    Read: "Read",           _Read: "已读", 
     toStateString: function(state) {
         if (state === this.ON) { return { state: this._ON, color: "#41A716" } }
         if (state === this.OFF) { return { state: this._OFF, color: "#EB7E10" } }
@@ -117,5 +108,28 @@ util.state = {
         if (state === this.Unread) { return { state: this._Unread, color: "#EABB06" } }
         if (state === this.Read) { return { state: this._Read, color: "#26DAD0" } } 
         return { state: "未知", color: "#FF6383" }
+    }
+}
+
+/// 动态类型
+util.trend_type = {
+    AddCommit: "AddCommit",             _AddCommit: "提交Commit",
+    AddIssue: "AddIssue",               _AddIssue: "提交Issue",
+    HadNewCommit: "HadNewCommit",       _HadNewCommit: "新添Commit",
+    HadNewIssue: "HadNewIssue",         _HadNewIssue: "新添Issue",
+    CommitAccepted: "CommitAccepted",   _CommitAccepted: "Commit过审",
+    CommitDeny: "CommitDeny",           _CommitDeny: "Commit被拒",
+    IssueAccepted: "IssueAccepted",     _IssueAccepted: "Issue过审",
+    IssueDeny: "IssueDeny",             _IssueDeny: "Issue被拒",
+    toTypeString: function(type) {
+        if (type === this.AddCommit) { return { type: this._AddCommit, color: "#41A716" } }
+        if (type === this.AddIssue) { return { type: this._AddIssue, color: "#41A716" } }
+        if (type === this.HadNewCommit) { return { type: this._HadNewCommit, color: "#2E7DE0" } }
+        if (type === this.HadNewIssue) { return { type: this._HadNewIssue, color: "#2E7DE0" } }
+        if (type === this.CommitAccepted) { return { type: this._CommitAccepted, color: "#2E7DE0" } }
+        if (type === this.IssueAccepted) { return { type: this._IssueAccepted, color: "#2E7DE0" } }
+        if (type === this.CommitDeny) { return { type: this._CommitDeny, color: "#E72B00" } }
+        if (type === this.IssueDeny) { return { type: this._IssueDeny, color: "#E72B00" } }
+        return { type: "未知", color: "#FF6383" }
     }
 }

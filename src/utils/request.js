@@ -54,8 +54,8 @@ export default function request(options) {
     return new Promise((resolve, reject) => {
         let _option = {
             method: options.method,
-            // url: config.baseUrl + options.url,
-            url: options.url,
+            url: config.baseUrl + options.url,
+            // url: options.url,
             timeout: 20000,
             // params: options.params ? options.params:options.data,
             params: options.params ? options.params:(options.method === 'get' ? options.data:null),

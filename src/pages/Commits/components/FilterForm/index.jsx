@@ -88,7 +88,7 @@ export default function Filter(props) {
                     <div className={styles.formItem}>
                         <span className={styles.formLabel}>数据状态：</span>
                         <IceFormBinder name="state">
-                            <Select style={{ width: '70%' }}>
+                            <Select style={{ width: '70%' }} hasClear={true}>
                                 <Select.Option value={util.state.ON}>
                                     {util.state._ON}
                                 </Select.Option>

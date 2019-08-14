@@ -10,6 +10,7 @@ export default {
     // User
     'app.menu.users': '用户管理',
     'app.menu.users.edit': '用户编辑',
+    'app.menu.trend': '用户动态',
 
     // Aside Menu
     'app.menu.dashboard': 'Dashboard',

@@ -30,6 +30,7 @@ const Issues        = React.lazy(() => import('@/pages/Issues'))
 
 /// 用户管理
 const Users         = React.lazy(() => import('@/pages/Users'))
+const Trends        = React.lazy(() => import('@/pages/Trends'))
 
 const routerConfig = [
     {
@@ -104,6 +105,10 @@ const routerConfig = [
             {
                 path: '/users/add',
                 component: Users
+            },
+            {
+                path: '/trend',
+                component: Trends
             },
             {
                 path: '/dashboard/monitor',

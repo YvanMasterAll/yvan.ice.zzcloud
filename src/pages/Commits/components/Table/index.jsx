@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Table, Pagination, Button, Dialog, Dropdown, Menu } from '@alifd/next'
+import { Table, Pagination, Button, Dialog, Dropdown, Menu, Input, Select } from '@alifd/next'
 import { FormattedMessage } from 'react-intl'
 import { Grid } from '@alifd/next'
 import IceContainer from '@icedesign/container'
@@ -80,6 +80,12 @@ const CommitsTable = props => {
     }
 
     function handleFilterChange(values) {
+        // 如果数据为空将它设为undefined, 避免提交伪参数
+        for (var index in values) {
+            if (_.trimStart(values[index]) === "") {
+                values[index] = undefined
+            }
+        }
         // 重置查询参数
         ys.filters = values
         setCurrent(1)
@@ -188,8 +194,9 @@ const CommitsTable = props => {
     }
 
     function renderState(_state) {
-        const { state, color } = util.state.toStateString(_state)
-        return <div style={{ color: color }}>{state}</div>
+        // const { state, color } = util.state.toStateString(_state)
+        // return <div style={{ color: color }}>{state}</div>
+        return <ReviewPane state={_state} />
     }
 
     function renderTitle(_title, index, data) {
@@ -312,6 +319,67 @@ const CommitsTable = props => {
             </IceContainer>
         </div>
     )
+}
+
+const ReviewPane = function(props) {
+    const [state, setState] = useState(props.state)
+    const [editable, setEditable] = useState(false)
+
+    const onKeyDown = (e) => {
+        const { keyCode } = e;
+        // Stop bubble up the events of keyUp, keyDown, keyLeft, and keyRight
+        if (keyCode > 36 && keyCode < 41) {
+            e.stopPropagation();
+        }
+    }
+
+    const onBlur = (e) => {
+        setEditable(false)
+        // props.onChange()
+    }
+
+    const onChange = (value) => {
+        setState(value)
+    }
+
+    const onDblClick = () => {
+        setEditable(true)
+    }
+
+    if (editable) {
+        return (
+            <Select onBlur={onBlur} onChange={onChange} onKeyDown={onKeyDown} defaultValue={util.state.toStateString(state).state}>
+                <Select.Option value={util.state.ON}>
+                    {util.state._ON}
+                </Select.Option>
+                <Select.Option value={util.state.OFF}>
+                    {util.state._OFF}
+                </Select.Option>
+                <Select.Option value={util.state.Cancel}>
+                    {util.state._Cancel}
+                </Select.Option>
+                <Select.Option value={util.state.Accept}>
+                    {util.state._Accept}
+                </Select.Option>
+                <Select.Option value={util.state.Deny}>
+                    {util.state._Deny}
+                </Select.Option>
+                <Select.Option value={util.state.Delete}>
+                    {util.state._Delete}
+                </Select.Option>
+                <Select.Option value={util.state.Complete}>
+                    {util.state._Complete}
+                </Select.Option>
+                <Select.Option value={util.state.Unread}>
+                    {util.state._Unread}
+                </Select.Option>
+                <Select.Option value={util.state.Read}>
+                    {util.state._Read}
+                </Select.Option>
+            </Select>
+        )
+    }
+    return <div onDoubleClick={onDblClick} style={{ color: util.state.toStateString(state).color }}>{util.state.toStateString(state).state}</div>
 }
 
 export default withRouter(injectIntl(CommitsTable))

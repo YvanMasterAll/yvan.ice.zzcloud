@@ -1,15 +1,16 @@
-@charset "UTF-8";
-
-.title {
-    margin: 0 0 20px !important;
-    padding-bottom: 10px !important;
-    border-bottom: 1px solid #eee !important;
+.label {
+    text-align: right;
 }
-
-.form {
-    margin-top: 30px !important;
+.formContent {
+    width: 100%;
+    position: relative;
 }
-
-.mr {
-    margin-left: 10px !important;
+.formItem {
+    align-items: center;
+    margin-bottom: 25;
+}
+.formTitle {
+    margin: 0 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
 }

@@ -43,29 +43,29 @@ export default function Filter(props) {
             <Row wrap gutter="40" className={styles.formRow}>
                 <Col xs="12" l="12">
                     <div className={styles.formItem}>
-                        <span className={styles.formLabel}>用户名：</span>
-                            <IceFormBinder name="name">
+                        <span className={styles.formLabel}>话题标题：</span>
+                            <IceFormBinder name="title">
                                 <Input
-                                    placeholder="用户名称"
+                                    placeholder="搜索知识库标题"
                                     style={{ width: '70%' }}
                                 />
                             </IceFormBinder>
                         <div className={styles.formError}>
-                            <IceFormError name='name' />
+                            <IceFormError name='title' />
                         </div>
                     </div>
                 </Col>
                 <Col xs="12" l="12">
                     <div className={styles.formItem}>
-                        <span className={styles.formLabel}>手机号：</span>
-                            <IceFormBinder name="phone">
+                        <span className={styles.formLabel}>动态用户：</span>
+                            <IceFormBinder name="name">
                                 <Input
-                                    placeholder="用户手机号"
+                                    placeholder="搜索动态用户的名称"
                                     style={{ width: '70%' }}
                                 />
                             </IceFormBinder>
                         <div className={styles.formError}>
-                            <IceFormError name='phone' />
+                            <IceFormError name='name' />
                         </div>
                     </div>
                 </Col>
@@ -86,40 +86,37 @@ export default function Filter(props) {
                 </Col>
                 <Col xs="12" l="12">
                     <div className={styles.formItem}>
-                        <span className={styles.formLabel}>数据状态：</span>
-                        <IceFormBinder name="state">
+                        <span className={styles.formLabel}>动态类型：</span>
+                        <IceFormBinder name="type">
                             <Select style={{ width: '70%' }} hasClear={true}>
-                                <Select.Option value={util.state.ON}>
-                                    {util.state._ON}
+                                <Select.Option value={util.trend_type.AddCommit}>
+                                    {util.trend_type._AddCommit}
                                 </Select.Option>
-                                <Select.Option value={util.state.OFF}>
-                                    {util.state._OFF}
+                                <Select.Option value={util.trend_type.AddIssue}>
+                                    {util.trend_type._AddIssue}
                                 </Select.Option>
-                                <Select.Option value={util.state.Cancel}>
-                                    {util.state._Cancel}
+                                <Select.Option value={util.trend_type.HadNewCommit}>
+                                    {util.trend_type._HadNewCommit}
                                 </Select.Option>
-                                <Select.Option value={util.state.Accept}>
-                                    {util.state._Accept}
+                                <Select.Option value={util.trend_type.HadNewIssue}>
+                                    {util.trend_type._HadNewIssue}
                                 </Select.Option>
-                                <Select.Option value={util.state.Deny}>
-                                    {util.state._Deny}
+                                <Select.Option value={util.trend_type.CommitAccepted}>
+                                    {util.trend_type._CommitAccepted}
                                 </Select.Option>
-                                <Select.Option value={util.state.Delete}>
-                                    {util.state._Delete}
+                                <Select.Option value={util.trend_type.CommitDeny}>
+                                    {util.trend_type._CommitDeny}
                                 </Select.Option>
-                                <Select.Option value={util.state.Complete}>
-                                    {util.state._Complete}
+                                <Select.Option value={util.trend_type.IssueAccepted}>
+                                    {util.trend_type._IssueAccepted}
                                 </Select.Option>
-                                <Select.Option value={util.state.Unread}>
-                                    {util.state._Unread}
-                                </Select.Option>
-                                <Select.Option value={util.state.Read}>
-                                    {util.state._Read}
+                                <Select.Option value={util.trend_type.IssueDeny}>
+                                    {util.trend_type._IssueDeny}
                                 </Select.Option>
                             </Select>
                         </IceFormBinder>
                         <div className={styles.formError}>
-                            <IceFormError name="state" />
+                            <IceFormError name="type" />
                         </div>
                     </div>
                 </Col>
