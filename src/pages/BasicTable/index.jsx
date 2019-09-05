@@ -12,6 +12,7 @@ function BasicTable() {
     )
 }
 
-export default withAuth({
-    authorities: [203]
-})(BasicTable)
+export default BasicTable
+// export default withAuth({
+//     authorities: [203]
+// })(BasicTable)

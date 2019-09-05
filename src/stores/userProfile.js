@@ -1,5 +1,8 @@
 import request from '@/utils/request'
+<<<<<<< HEAD
 import { userProfile, userLogout, userLogin } from '../dataSourceConfig'
+=======
+>>>>>>> 381ad446d233fdc99213b477b70bc13d9e5de787
 import { signin, signout } from '../dataSourceConfig'
 
 export default {
