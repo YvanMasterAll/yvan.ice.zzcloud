@@ -2,41 +2,14 @@ import stores, { types } from '@/stores'
 import { store, actions } from '../redux'
 import * as _types from '../redux/types'
 import request from './request'
-import axios from 'axios'
-import * as urls from '../dataSourceConfig'
-import { util } from '../utils'
 
 function test() {
     // testIcestore()
     // testSocket
-    // testRedux()
-    // testRepos()
-    // testExample()
+    testRedux()
 }
 
-/// 简单测试
-async function testExample() {
-    let result = await request({
-        method: urls.repos.method, 
-        url: urls.repos.url + "/text/1", 
-        data: {page: 2}
-    })
-    console.log(result)
-}
-
-/// 知识库接口
-async function testRepos() {
-    console.log(util.toDateString())
-    let result = await request({
-        method: urls.repos.method, 
-        url: urls.repos.url, 
-        data: {page: 1, title: '高考', etime: util.toDateString(), name: '电商狗-老李'}
-    })
-
-    console.log(result)
-}
-
-/// 测试飞冰提供的状态管理组件icestore
+/// 测试飞冰自带的状态管理组件
 function testIcestore() {
     let record = stores.useStore(types.record)
     let { records } = record

@@ -16,7 +16,6 @@ function BasicCharts() {
     )
 }
 
-export default BasicCharts
-// export default withAuth({
-//     authorities: [202]
-// })(BasicCharts)
+export default withAuth({
+    authorities: [202]
+})(BasicCharts)

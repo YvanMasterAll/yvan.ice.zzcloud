@@ -4,7 +4,6 @@ html {
 body {
     -webkit-font-smoothing: antialiased;
 }
-<<<<<<< HEAD
 :focus {
     outline: none;
 }
@@ -13,23 +12,4 @@ body {
 }
 .container-block {
     margin-bottom: 14px !important;
-=======
-
-// 箭头
-.chevron { 
-    width: 4px;
-    height: 4px;
-    border-top: 1px solid #333333;
-    border-right: 1px solid #333333;
-    transition: .3s all cubic-bezier(1, 0.25, 0.25, .8);
-    will-change: transform;
-  
-    &.down {
-      transform: rotate(135deg); 
-    }
-  
-    &.up {
-      transform: rotate(-45deg);  
-    } 
->>>>>>> 381ad446d233fdc99213b477b70bc13d9e5de787
 }

@@ -66,7 +66,7 @@ export default function GoodsTable() {
     function handleDelete() {
         Dialog.confirm({
             title: '提示',
-            content: '确定要删除吗',
+            content: '确认删除吗',
             onOk: () => {
                 fetchData(10)
             }

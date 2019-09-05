@@ -25,25 +25,9 @@
                     color: #1890ff;
                 }
             }
-            .next-nav.next-normal .next-nav-item.next-menu-item {
-                &.next-selected {
-                    background: #e6f7ff;
-                    border-right: 2px solid #1890ff;
-                    color: #1890ff;
-                }
-                &:hover {
-                    color: #1890ff;
-                }
-            }
             .next-menu-item-inner .next-menu-item-text .fa {
                 opacity: 1;
                 margin-right: 6px;
-<<<<<<< HEAD
-=======
-            }
-            .next-nav.next-icon-only .next-menu-item-inner {
-                width: 24px;
->>>>>>> 381ad446d233fdc99213b477b70bc13d9e5de787
             }
             .collapse-btn {
                 cursor: pointer;

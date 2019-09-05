@@ -24,7 +24,7 @@ export default function DeleteBalloon(props) {
 
     const content = (
         <div>
-            <div style={styles.contentText}>确定要删除？</div>
+            <div style={styles.contentText}>确认删除？</div>
             <Button
                 id="confirmBtn"
                 type="normal"

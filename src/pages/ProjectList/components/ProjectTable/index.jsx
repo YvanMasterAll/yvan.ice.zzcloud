@@ -9,7 +9,7 @@ import styles from './index.module.scss'
 function handleRemove() {
     Dialog.confirm({
         title: '提示',
-        content: '确定要删除该项目吗？'
+        content: '确认删除该项目吗？'
     })
 }
 

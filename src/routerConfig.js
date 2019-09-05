@@ -43,15 +43,6 @@ import BasicLayout from '@/layouts/BasicLayout'
  import NotFound from '@/pages/NotFound'
  import ServerError from '@/pages/ServerError'
 
-/// 知识库列表
-const Repositories  = React.lazy(() => import('@/pages/Repositories'))
-const Commits       = React.lazy(() => import('@/pages/Commits'))
-const Issues        = React.lazy(() => import('@/pages/Issues'))
-
-/// 用户管理
-const Users         = React.lazy(() => import('@/pages/Users'))
-const Trends        = React.lazy(() => import('@/pages/Trends'))
-
 const routerConfig = [
     {
         path: '/user',
@@ -78,58 +69,6 @@ const routerConfig = [
         path: '/',
         component: BasicLayout,
         children: [
-            {
-                path: '/repository',
-                component: Repositories
-            },
-            {
-                path: '/repository/edit',
-                component: Repositories
-            },
-            {
-                path: '/repository/add',
-                component: Repositories
-            },
-            {
-                path: '/commit',
-                component: Commits
-            },
-            {
-                path: '/commit/edit',
-                component: Commits
-            },
-            {
-                path: '/commit/add',
-                component: Commits
-            },
-            {
-                path: '/issue',
-                component: Issues
-            },
-            {
-                path: '/issue/edit',
-                component: Issues
-            },
-            {
-                path: '/issue/add',
-                component: Issues
-            },
-            {
-                path: '/users',
-                component: Users
-            },
-            {
-                path: '/users/edit',
-                component: Users
-            },
-            {
-                path: '/users/add',
-                component: Users
-            },
-            {
-                path: '/trend',
-                component: Trends
-            },
             {
                 path: '/dashboard/monitor',
                 component: Dashboard,
@@ -203,7 +142,7 @@ const routerConfig = [
             },
             {
                 path: '/',
-                redirect: '/repository'
+                redirect: '/dashboard/monitor'
             },
             // {
             //     component: NotFound

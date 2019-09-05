@@ -1,12 +1,4 @@
 export default {
-    // Repository
-    'app.menu.repository': 'Repository',
-    'app.menu.repository.edit': 'RepositoryEdit',
-    'app.menu.commit': 'Commit',
-    'app.menu.commit.edit': 'CommitEdit',
-    'app.menu.issue': 'Issue',
-    'app.menu.issue.edit': 'IssueEdit',
-
     // Aside Menu
     'app.menu.dashboard': 'Dashboard',
     'app.menu.dashboard.monitor': 'Monitor',

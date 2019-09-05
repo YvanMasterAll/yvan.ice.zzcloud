@@ -10,7 +10,6 @@ function BasicList() {
     )
 }
 
-export default BasicList
-// export default withAuth({
-//     authorities: [102, 204]
-// })(BasicList)
+export default withAuth({
+    authorities: [102, 204]
+})(BasicList)

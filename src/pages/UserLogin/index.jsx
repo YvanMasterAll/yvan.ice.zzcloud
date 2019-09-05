@@ -113,10 +113,10 @@ function UserLogin(props) {
                                 className={styles.tipsText}
                                 style={{ marginRight: '20px' }}
                             >
-                                管理员登录：admin
+                                管理员登录：admin/admin
                             </span>
                             <span className={styles.tipsText}>
-                                测试密码：123456
+                                用户登录：user/user
                             </span>
                         </p>
                     </Row>
