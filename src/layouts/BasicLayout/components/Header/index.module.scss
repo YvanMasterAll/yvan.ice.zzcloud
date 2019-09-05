@@ -4,7 +4,7 @@ $ice-header-icon-down-color: #fff !default;
 /* HEADER */
 .iceDesignLayoutHeader {
     width: 100%;
-    height: 60px;
+    height: 50px;
     padding: 10px 0px;
     margin: 0px auto;
     display: flex;
@@ -21,7 +21,7 @@ $ice-header-icon-down-color: #fff !default;
         box-shadow: 4px 4px 40px 0 rgba(0,0,0,.05);
     }
     .asideBar {
-        height: 60px;
+        height: 50px;
         width: 64px;
         display: flex;
         justify-content: center;

@@ -1,0 +1,15 @@
+.tab {
+    :global {
+        .next-tabs-wrapped > .next-tabs-bar .next-tabs-tab .next-tabs-tab-close {
+            padding: 0;
+            margin-left: 4px;
+        }
+        .next-tabs.next-small .next-tabs-tab-inner {
+            padding: 6px 12px;
+        }
+        .next-tabs-wrapped.next-tabs-top > .next-tabs-bar {
+            margin-bottom: 14px;
+            box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 3px -1px;
+        }
+    }
+}

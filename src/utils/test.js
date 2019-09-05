@@ -44,7 +44,7 @@ function testSocket() {
 /// 测试Redux
 async function testRedux() {
     // 测试登录
-    // store.dispatch({type: _types.signin, payload: {name: 'yi02', password: '123456'}})
+    store.dispatch({type: _types.signin, payload: {name: 'yi02', password: '123456'}})
     // console.log(env.getUser())
     // console.log(env.getToken())
 

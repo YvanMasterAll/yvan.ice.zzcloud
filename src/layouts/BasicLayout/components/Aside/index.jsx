@@ -30,8 +30,9 @@ function getSubMenuOrItem(item, index) {
             return (
                 <SubNav
                     key={index}
+                    // openKeys={[index]}
                     // icon={item.icon ? item.icon : null}
-                    icon={item.icon ? <FontAwesome name={item.icon} style={{width: 28, color: '#666666', textAlign: "center", fontSize: 16}} />:null}
+                    icon={item.icon ? <FontAwesome name={item.icon} style={{width: 24, color: '#666666', textAlign: "center", fontSize: 16}} />:null}
                     label={
                         <span className="ice-menu-collapse-hide">
                             <FormattedMessage id={getLocaleKey(item)} />
@@ -92,6 +93,7 @@ function getDefaultOpenKeys(location = {}) {
     return openKeys
 }
 
+let loaded = false
 const Aside = withRouter(props => {
     const defaultOpenKeys = getDefaultOpenKeys(props.location)
     const [openKeys, setOpenKeys] = useState(defaultOpenKeys)
@@ -111,15 +113,21 @@ const Aside = withRouter(props => {
         setCollapse
     } = props
     
-    //因为侧边栏折叠后会显示popup, 所以要执行一个回调, 取消popup显示
-    setCollaping(() => { setOpenKeys([]) })
+    // 因为侧边栏折叠后会显示popup, 所以要执行一个回调, 取消popup显示
+    setCollaping(() => { 
+        if (!loaded) {
+            loaded = true
+        } else {
+            setOpenKeys([])
+        }
+    })
 
     const collapseClassName = collapse ?  styles.collapse:''
 
     return (
         <div className={`${styles.iceDesignLayoutAside} ${styles.iceDesignProAside} ${collapseClassName}`}>
             <Nav
-                style={{ width: collapse ? 60 : 200 }}
+                style={{ width: collapse ? 60 : 180 }}
                 mode={collapse ? 'popup' : 'inline'}
                 iconOnly={collapse}
                 hasArrow={!collapse}

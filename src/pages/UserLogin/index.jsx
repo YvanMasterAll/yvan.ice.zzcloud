@@ -14,7 +14,7 @@ function UserLogin(props) {
     const userProfile = stores.useStore('userProfile')
 
     const [value, setValue] = useState({
-        username: '',
+        name: '',
         password: '',
         checkbox: false
     })
@@ -32,10 +32,22 @@ function UserLogin(props) {
     }
 
     async function handleLogin(params) {
+        // try {
+        //     userProfile.login(params, () => {
+        //         Message.success('登录成功')
+        //         props.history.push('/')
+        //     })
+        // } catch (err) {
+        //     console.log(err)
+        // }
         try {
-            userProfile.login(params, () => {
-                Message.success('登录成功')
-                props.history.push('/')
+            userProfile.login(params, (result) => {
+                if (result.valid) {
+                    Message.success('登录成功')
+                    // props.history.push('/')
+                } else {
+                    Message.success('登录失败，错误信息：' + result.msg)
+                }
             })
         } catch (err) {
             console.log(err)
@@ -59,7 +71,7 @@ function UserLogin(props) {
                                     className={styles.inputIcon}
                                 />
                             }
-                            name="username"
+                            name="name"
                             maxLength={20}
                             placeholder="用户名"
                         />

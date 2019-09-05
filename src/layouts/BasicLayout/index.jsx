@@ -4,6 +4,7 @@ import { enquire } from 'enquire-js'
 import Header from './components/Header'
 import Aside from './components/Aside'
 import Footer from './components/Footer'
+import Tab from './components/Tab'
 import styles from './index.module.scss'
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 import { authCheck } from '../../components/Auth'
@@ -69,8 +70,9 @@ export default function BasicLayout(props) {
                         <Aside isMobile={isMobile} collapse={collapse} setCollapse={setCollapse} setCollaping={setCollaping}/>
                     </Layout.Aside>
                     <Layout.Main>
-                        <CustomBreadcrumb />
-                        {props.children}
+                        {/* <CustomBreadcrumb /> */}
+                        {/* {props.children} */}
+                        <Tab routes={props.children} />
                         <Footer />
                     </Layout.Main>
                 </Layout.Section>

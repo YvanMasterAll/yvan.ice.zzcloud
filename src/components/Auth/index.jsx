@@ -105,15 +105,15 @@ const withAuth = params => WrapperedComponent => {
 
 /// 检查token是否过时
 const authCheck = function() {
-    let user = env.getUser()
-    if (!user) { return false }
+    // let user = env.getUser()
+    // if (!user) { return false }
     
-    let token = user.token
-    let expire = token.exp
-    let now = Math.ceil((new Date().getTime())/1000)
-    if (now > expire) {
-        return false
-    }
+    // let token = user.token
+    // let expire = token.exp
+    // let now = Math.ceil((new Date().getTime())/1000)
+    // if (now > expire) {
+    //     return false
+    // }
 
     return true
 }

@@ -69,7 +69,7 @@ function Header(props) {
             className={`${styles.iceDesignLayoutHeader} ${className}`}
             style={{ ...style }}
         >
-            <div style={{ width: collapse ? 60 : 200, zIndex: 1, height: 60, boxShadow: '0 1px 9px -3px rgba(0,0,0,.2)', backgroundColor: '#fff', transition: 'all .2s ease-out' }}>
+            <div style={{ width: collapse ? 60 : 180, zIndex: 1, height: 50, boxShadow: '0 1px 9px -3px rgba(0,0,0,.2)', backgroundColor: '#fff', transition: 'all .2s ease-out' }}>
                 <Logo collapse={collapse}/>
             </div>
 
